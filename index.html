@@ -165,9 +165,10 @@ textarea{width:100%;min-height:90px;font:16px var(--sans);padding:12px;border:1.
           <p class="lead">"A consagração é uma arma que Deus concede àqueles que desejam chegar à mais alta santidade."</p>
         </div>
         <div class="grow"></div>
-        <button class="btn" onclick="obStep(2)">Começar a preparação</button>
+        <button class="btn" id="btn-start" onclick="startOrContinue()">Começar a preparação</button>
         <div style="height:10px"></div>
         <button class="btn ghost" onclick="openVideo('6Jke6Y42p08')">O que é consagrar-se a Nossa Senhora?</button>
+        <button class="back" id="btn-reset" style="display:none;margin:14px auto 0;color:var(--ink-3)" onclick="resetAll()">Recomeçar do zero</button>
       </div>
       <div class="step" data-step="2">
         <div style="height:54px"></div><button class="back" onclick="obStep(1)"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar</button>
@@ -318,7 +319,10 @@ function renderExame(){const key=ymd(new Date());const qs=D.exame_mariano.secoes
  h+=`<div class="note">No app final, um lembrete às 21h abre esta tela. O histórico mostra os dias em que o exame foi feito.</div>`;
  document.getElementById('exame').innerHTML=h}
 /* boot */
-if(S.started)go('jornada');else{document.querySelectorAll('#tabs button').forEach(b=>b.classList.remove('on'))}
+document.querySelectorAll('#tabs button').forEach(b=>b.classList.remove('on'));
+if(S.started){document.getElementById('btn-start').textContent='Continuar a jornada';document.getElementById('btn-reset').style.display='inline-flex'}
+function startOrContinue(){if(S.started)go('jornada');else obStep(2)}
+function resetAll(){if(!confirm('Apagar progresso, práticas, anotações e exames deste aparelho?'))return;for(const k of Object.keys(S))delete S[k];Object.assign(S,{mode:'regular',feast:'2026-12-08',done:{},prat:{},notes:{},exam:{},started:false});try{localStorage.removeItem('tt-proto')}catch(e){}location.reload()}
 </script>
 </body>
 </html>
