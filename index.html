@@ -29,8 +29,8 @@ body{background:#2A1B12;font-family:var(--sans);color:var(--ink);-webkit-font-sm
 .aside .k{display:block;margin-top:14px;font-size:13px;color:#9C8A74}
 .phone{width:390px;height:844px;background:var(--paper);border-radius:44px;overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 10px #120C08,0 0 0 12px #3a2b20;display:flex;flex-direction:column}
 @media (max-width:820px){.stage{padding:0;display:block}.aside{display:none}.phone{width:100%;height:100dvh;border-radius:0;box-shadow:none}}
-.screen{flex:1;overflow-y:auto;overflow-x:hidden;display:none;padding-bottom:16px;scroll-behavior:smooth}
-.screen.on{display:block}.screen.on.ob{display:flex}
+.screen{flex:1;overflow-y:auto;overflow-x:hidden;display:none!important;padding-bottom:16px;scroll-behavior:smooth}
+.screen.on{display:block!important}.screen.on.ob{display:flex!important}
 .tabs{display:flex;border-top:1px solid var(--line);background:var(--paper);padding:8px 6px calc(10px + env(safe-area-inset-bottom))}
 .tabs button{flex:1;background:none;border:0;font:500 12px var(--sans);color:var(--ink-3);padding:6px 2px 2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px}
 .tabs button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6}
@@ -50,7 +50,7 @@ body{background:#2A1B12;font-family:var(--sans);color:var(--ink);-webkit-font-sm
 .chip{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:13px;color:var(--ink-2);background:var(--card);cursor:pointer}
 .chip.on{background:var(--wine);color:#fff;border-color:var(--wine)}
 /* onboarding */
-.ob{display:flex;flex-direction:column;min-height:100%;padding:0 26px 30px;background:radial-gradient(120% 60% at 50% -10%,var(--gold-3),transparent 60%)}
+.ob{flex-direction:column;min-height:100%;padding:0 26px 30px;background:radial-gradient(120% 60% at 50% -10%,var(--gold-3),transparent 60%)}
 .ob .logo{margin:70px auto 10px;width:150px;height:150px;border-radius:50%;background:var(--card);display:grid;place-items:center;box-shadow:0 8px 30px rgba(110,27,31,.15)}
 .ob .logo img{width:120px;height:120px;object-fit:contain}
 .ob h1{font-family:var(--serif);font-weight:600;font-size:40px;line-height:.95;text-align:center;margin:10px 0 4px}
@@ -170,7 +170,7 @@ textarea{width:100%;min-height:90px;font:16px var(--sans);padding:12px;border:1.
         <button class="btn ghost" onclick="openVideo('6Jke6Y42p08')">O que é consagrar-se a Nossa Senhora?</button>
       </div>
       <div class="step" data-step="2">
-        <div style="height:70px"></div>
+        <div style="height:54px"></div><button class="back" onclick="obStep(1)"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar</button>
         <h1 style="text-align:left;font-size:34px">Em que ritmo você vai caminhar?</h1>
         <div class="tag" style="text-align:left;margin-bottom:18px">Dá para mudar depois.</div>
         <button class="choice on" data-mode="regular" onclick="pickMode(this)"><b>Consagração regular</b><span>Uma lição por semana, com preparador ou grupo. Cada prática dura a semana inteira. Cerca de 8 meses.</span></button>
@@ -179,8 +179,8 @@ textarea{width:100%;min-height:90px;font:16px var(--sans);padding:12px;border:1.
         <button class="btn" onclick="obStep(3)">Continuar</button>
       </div>
       <div class="step" data-step="3">
-        <div style="height:70px"></div>
-        <h1 style="text-align:left;font-size:34px">Em que festa de Maria você quer se consagrar?</h1>
+        <div style="height:54px"></div><button class="back" onclick="obStep(2)"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Voltar</button>
+        <h1 style="text-align:left;font-size:34px">Em que festa Mariana você quer se Consagrar?</h1>
         <div class="tag" style="text-align:left;margin-bottom:14px">A preparação termina na véspera da festa.</div>
         <select id="feast" onchange="calcDates()"></select>
         <div class="calc" id="calc"></div>
